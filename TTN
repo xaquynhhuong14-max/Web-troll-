@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng nhập</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+input, button {
+    padding: 12px;
+    margin: 8px;
+    width: 220px;
+    font-size: 16px;
+}
+
+#troll {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#troll img {
+    max-width: 90%;
+    max-height: 70%;
+}
+
+#text {
+    color: white;
+    font-size: 28px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+    <h2>Đăng nhập</h2>
+    <input type="text" placeholder="Tài khoản">
+    <input type="password" placeholder="Mật khẩu">
+    <button onclick="troll()">Đăng nhập</button>
+</div>
+
+<div id="troll">
+    <img src="troll.jpg">
+    <div id="text">🤡 BẠN ĐÃ BỊ TROLL 🤡</div>
+</div>
+
+<audio id="sound" src="alert.mp3"></audio>
+
+<script>
+function troll() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("troll").style.display = "flex";
+
+    // full màn hình
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    }
+
+    // bật âm thanh (cần click)
+    document.getElementById("sound").play();
+}
+</script>
+
+</body>
+</html>
